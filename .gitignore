@@ -1,0 +1,9 @@
+*.swp
+*.bak
+obj
+tmp
+
+r.data
+g.data
+b.data
+
