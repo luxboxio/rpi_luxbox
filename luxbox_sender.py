@@ -1,4 +1,5 @@
 import socket
+import time
 import sys
 
 
@@ -30,11 +31,10 @@ MESSAGE = """{
 
 }"""
 
-print("UDP target ip: ", UDP_IP)
-print("UDP target port: ", UDP_PORT)
+print("Start sending udp packets to ip: " + UDP_IP + ":" + str(UDP_PORT))
 
-
-sock = socket.socket( socket.AF_INET, socket.SOCK_DGRAM)
-sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-sock.sendto( bytes( MESSAGE, "utf-8") , (UDP_IP, UDP_PORT))
-
+while True:
+	sock = socket.socket( socket.AF_INET, socket.SOCK_DGRAM)
+	sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+	sock.sendto( bytes( MESSAGE, "utf-8") , (UDP_IP, UDP_PORT))
+	time.sleep(10)
