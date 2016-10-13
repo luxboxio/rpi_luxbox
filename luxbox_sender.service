@@ -1,0 +1,9 @@
+[Unit]
+Description=Luxbox Sender
+After=network.target
+
+[Service]
+ExecStart=/opt/luxbox/luxbox_sender.py
+
+[Install]
+WantedBy=multi-user.target
