@@ -7,6 +7,7 @@ import sys
 import ws2811
 import json
 import time
+import signal
 
 UDP_IP = "0.0.0.0"
 UDP_PORT = 11111
@@ -126,8 +127,19 @@ def main():
   
   ws2811.fini()
 	
+def sigterm_handler(_signo, _stack_frame):
+  print("SIGTERM received. Cleaning up...")
+  sys.exit(0)
+
+def sigint_handler(_signo, _stack_frame):
+  print("SIGINT received. Cleaning up...")
+  sys.exit(0)
 
 if __name__ == '__main__':
+  print("Starting luxbox_receiver...")
+  signal.signal(signal.SIGTERM, sigterm_handler)
+  signal.signal(signal.SIGINT, sigterm_handler)
+  tryLoading()
   main()
 else:
   print("Run this script as __main__!")

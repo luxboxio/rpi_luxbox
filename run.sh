@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python luxbox_receiver.py
+python3 luxbox_receiver.py
