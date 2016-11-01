@@ -1,9 +1,10 @@
-*.swp
-*.bak
+.kdev4
+.vimrc
 obj
 tmp
 
-r.data
-g.data
-b.data
+
+*.swp
+*.bak
+rgb.data
 
